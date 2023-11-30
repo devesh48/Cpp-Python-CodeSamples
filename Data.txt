@@ -1,0 +1,43 @@
+Certainly! Below is a simple example of a YAML file for a SOAP API using 42Crunch API Security Platform. This example includes basic configurations such as the API name, endpoint, and security definitions.
+
+```yaml
+openapi: "3.0.0"
+info:
+  title: "My SOAP API"
+  version: "1.0.0"
+paths:
+  /soap-endpoint:
+    post:
+      summary: "SOAP Endpoint"
+      operationId: "invokeSoapEndpoint"
+      requestBody:
+        required: true
+        content:
+          text/xml:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: "Successful response"
+          content:
+            application/xml:
+              schema:
+                type: string
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+```
+
+In this example:
+
+- `openapi: "3.0.0"` specifies the version of the OpenAPI Specification.
+- `info` provides general information about the API, including its title and version.
+- `paths` define the available API paths, with a single path `/soap-endpoint` for a SOAP endpoint.
+- The `post` operation under `/soap-endpoint` is defined to handle SOAP requests.
+- The `requestBody` section specifies that the request should contain XML data.
+- The `responses` section defines a successful response with a status code of `200`.
+- The `components` section defines a basic security scheme (`basicAuth`), which can be customized based on your API security requirements.
+
+This is a basic template, and you may need to adjust it according to the specific structure and requirements of your SOAP API. Additionally, you can add more details, such as headers, parameters, and security definitions, based on your API specifications.
